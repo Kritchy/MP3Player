@@ -1,70 +1,15 @@
 <html>
   <head>
-    <title>MP3 Player</title>
-    <style>
-      /* Style the player controls */
-      .player-controls {
-        display: flex;
-        align-items: center;
-      }
-      .player-controls button {
-        margin-left: 10px;
-      }
-    </style>
+    <title>Login</title>
   </head>
   <body>
-    <h1>MP3 Player</h1>
-    <audio id="player" src="" autoplay loop></audio>
-    <div class="player-controls">
-      <button id="stop-button">Stop</button>
-      <button id="resume-button">Resume</button>
-    </div>
-    <script>
-      // Get the audio player and the control buttons
-      const player = document.getElementById('player');
-      const stopButton = document.getElementById('stop-button');
-      const resumeButton = document.getElementById('resume-button');
-
-      // Set the initial source of the audio player
-      // Replace "./songs/" with the path to your MP3 files
-      player.src = './1.mp3';
-
-      // Stop the player when the stop button is clicked
-      stopButton.addEventListener('click', () => {
-        player.pause();
-        player.currentTime = 0;
-      });
-
-      // Resume the player when the resume button is clicked
-      resumeButton.addEventListener('click', () => {
-        player.play();
-      });
-
-      // When the player reaches the end of a track, move to the next track
-      player.addEventListener('ended', () => {
-        // Get the list of MP3 files in the folder
-        const mp3Files = [
-          // Replace "./songs/" with the path to your MP3 files
-          './1.mp3',
-          './2.mp3',
-          './3.mp3',
-          // Add more MP3 files here, if you have them
-        ];
-
-        // Find the current track in the list of MP3 files
-        const currentTrackIndex = mp3Files.indexOf(player.src);
-
-        // If the current track is not the last track, move to the next track
-        if (currentTrackIndex < mp3Files.length - 1) {
-          player.src = mp3Files[currentTrackIndex + 1];
-          player.play();
-        }
-        // If the current track is the last track, move to the first track
-        else {
-          player.src = mp3Files[0];
-          player.play();
-        }
-      });
-    </script>
+    <h1>Login</h1>
+    <form action="save-to-text-file.php" method="post">
+      <label for="username">Username:</label><br>
+      <input type="text" id="username" name="username"><br>
+      <label for="password">Password:</label><br>
+      <input type="password" id="password" name="password"><br><br>
+      <input type="submit" value="Submit">
+    </form>
   </body>
 </html>
